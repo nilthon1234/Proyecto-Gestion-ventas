@@ -21,14 +21,19 @@ public class Autos {
     private String capacidad;
     private double precio;
     @ManyToOne
+    @JoinColumn(name = "sede")
     private Sedes sede;
     @ManyToOne
+    @JoinColumn(name = "proveedor")
     private Proveedores proveedor;
     @ManyToOne
+    @JoinColumn(name = "mantenimiento")
     private Mantenimiento mantenimiento;
     @ManyToOne
+    @JoinColumn(name = "financiamiento")
     private Financiamiento financiamiento;
     @ManyToOne
+    @JoinColumn(name = "venta")
     private Ventas venta;
 
 
