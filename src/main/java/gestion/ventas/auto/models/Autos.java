@@ -3,15 +3,19 @@ package gestion.ventas.auto.models;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Autos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_autos")
     private String idAuto;
     private String nombre;
+    private String descripcion;
     private String marca;
     private String modelo;
     private String color;
