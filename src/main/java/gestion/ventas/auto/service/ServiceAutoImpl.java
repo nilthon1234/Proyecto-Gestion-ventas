@@ -45,4 +45,12 @@ public class ServiceAutoImpl implements ServiceAutos {
         Autos update = autosRepository.save(save);
         return autoMapper.regisAutoMapper(update);
     }
+
+    @Override
+    public void deleteAuto(String id) {
+        if (!autosRepository.existsById(id)){
+            throw new RuntimeException("Auto no encontrado con: " + id);
+        }
+         autosRepository.deleteById(id);
+    }
 }
