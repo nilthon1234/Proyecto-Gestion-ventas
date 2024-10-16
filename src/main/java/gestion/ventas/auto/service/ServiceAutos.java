@@ -9,4 +9,5 @@ public interface ServiceAutos {
     AutoDTO createAuto (AutoDTO autosDto);
     List<AutoDTO> listAll();
     AutoDTO updateAutos(String id, AutoDTO autoDto);
+    void deleteAuto(String id);
 }

@@ -24,22 +24,24 @@ public class AutosController {
         return serviceAutos.listAll();
     }
     @PostMapping("/add-auto")
-    public ResponseEntity<Map<String, String>> registrarAuto(@RequestBody AutoDTO autoDTO){
-        Map<String, String> response = new HashMap<>();
-        try {
-            serviceAutos.createAuto(autoDTO);
-            response.put("message", "Auto Registrado Correctamente");
-            return new  ResponseEntity<>(response, HttpStatus.CREATED);
-        }catch (Exception e){
-            response.put("message",  "ERROR AL AGREGAR");
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<?> registrarAuto(@RequestBody AutoDTO autoDTO){
+        return ResponseEntity.ok(serviceAutos.createAuto(autoDTO));
 
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateAutos(@PathVariable String id, @RequestBody AutoDTO autoDTO){
         return ResponseEntity.ok(serviceAutos.updateAutos(id, autoDTO));
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable String id){
+        try {
+            serviceAutos.deleteAuto(id);
+            return ResponseEntity.ok("Auto eliminado: " + id);
+
+        }catch (RuntimeException e){
+          return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
 }
