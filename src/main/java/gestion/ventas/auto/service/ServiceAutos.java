@@ -6,6 +6,7 @@ import gestion.ventas.auto.models.Autos;
 import java.util.List;
 
 public interface ServiceAutos {
-    Autos createAuto (AutoDTO autosDto);
+    AutoDTO createAuto (AutoDTO autosDto);
     List<AutoDTO> listAll();
+    AutoDTO updateAutos(String id, AutoDTO autoDto);
 }

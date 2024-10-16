@@ -22,9 +22,10 @@ public class ServiceAutoImpl implements ServiceAutos {
         this.autoMapper = autoMapper;
     }
     @Override
-    public Autos createAuto(AutoDTO autosDto) {
-        Autos add = autoMapper.regisAutoMapper(autosDto);
-        return autosRepository.save(add);
+    public AutoDTO createAuto(AutoDTO autosDto) {
+        Autos mapear = autoMapper.updateAuto(autosDto, new Autos());
+        Autos autoGuardado =autosRepository.save(mapear);
+        return autoMapper.regisAutoMapper(autoGuardado);
     }
 
     @Override
@@ -33,5 +34,15 @@ public class ServiceAutoImpl implements ServiceAutos {
         return auto.stream()
                 .map(autoMapper::lisAllAutoMapper)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public AutoDTO updateAutos(String id, AutoDTO autoDto) {
+        Autos autos =  autosRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Auto no encontrado con Id:" + id));
+
+        Autos save = autoMapper.updateAuto(autoDto, autos);
+        Autos update = autosRepository.save(save);
+        return autoMapper.regisAutoMapper(update);
     }
 }

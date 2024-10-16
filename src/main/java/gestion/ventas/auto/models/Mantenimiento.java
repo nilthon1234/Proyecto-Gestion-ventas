@@ -9,6 +9,6 @@ public class Mantenimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mantenimiento")
-    private String idMantemiento;
+    private Integer idMantemiento;
 
 }

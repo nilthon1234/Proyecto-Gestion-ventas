@@ -15,7 +15,7 @@ public class AutoDTO {
 
     private String idAutoDto;
     private String nombreDto;
-    private String DescripcionDto;
+    private String descripcionDto;
     private String marcaDto;
     private String modeloDto;
     private String colorDto;
@@ -23,10 +23,10 @@ public class AutoDTO {
     private String tipo_motorDto;
     private String capacidadDto;
     private double precioDto;
-    private Sedes sedeDto;
-    private Proveedores proveedorDto;
-    private Mantenimiento mantenimientoDto;
-    private Financiamiento financiamientoDto;
-    private Ventas ventaDto;
+    private Integer sedeDto;
+    private Integer proveedorDto;
+    private Integer mantenimientoDto;
+    private Integer financiamientoDto;
+    private Integer ventaDto;
 
 }

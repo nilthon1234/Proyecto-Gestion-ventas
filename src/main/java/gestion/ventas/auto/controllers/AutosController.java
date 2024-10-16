@@ -23,7 +23,6 @@ public class AutosController {
     public List<AutoDTO> listarTodo (){
         return serviceAutos.listAll();
     }
-
     @PostMapping("/add-auto")
     public ResponseEntity<Map<String, String>> registrarAuto(@RequestBody AutoDTO autoDTO){
         Map<String, String> response = new HashMap<>();
@@ -37,4 +36,10 @@ public class AutosController {
         }
 
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateAutos(@PathVariable String id, @RequestBody AutoDTO autoDTO){
+        return ResponseEntity.ok(serviceAutos.updateAutos(id, autoDTO));
+    }
+
 }
