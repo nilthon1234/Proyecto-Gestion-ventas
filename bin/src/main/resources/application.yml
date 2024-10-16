@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Proyecto-Gestion-ventas
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/VENTAAUTOSPERU
+    username: root
+    password: mysql
+
+  jpa:
+    properties:
+      hibernate:
+        dialect:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  logging:
+    level:
+      org.hibertane.SQL: DEBUG
+      org.hibernate.type: TRACE
