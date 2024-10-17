@@ -20,4 +20,4 @@ spring:
       org.hibertane.SQL: DEBUG
       org.hibernate.type: TRACE
 server:
-  port: 8081
+  port: 8080
