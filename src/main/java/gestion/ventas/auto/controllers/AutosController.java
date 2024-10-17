@@ -12,28 +12,28 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/auto")
 public class AutosController {
 
     private final ServiceAutos serviceAutos;
     public AutosController (ServiceAutos serviceAutos){
         this.serviceAutos = serviceAutos;
     }
-    @GetMapping("/listar-autos")
+    @GetMapping
     public List<AutoDTO> listarTodo (){
         return serviceAutos.listAll();
     }
-    @PostMapping("/add-auto")
+    @PostMapping
     public ResponseEntity<?> registrarAuto(@RequestBody AutoDTO autoDTO){
         return ResponseEntity.ok(serviceAutos.createAuto(autoDTO));
 
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateAutos(@PathVariable String id, @RequestBody AutoDTO autoDTO){
         return ResponseEntity.ok(serviceAutos.updateAutos(id, autoDTO));
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable String id){
         try {
             serviceAutos.deleteAuto(id);
