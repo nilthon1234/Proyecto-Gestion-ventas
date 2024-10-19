@@ -14,6 +14,9 @@ public class UsuarioDTO {
     private String apellido;       
     private String celular;         
     private String nombreUsuario;    
-    private String contraseña;       
+    private String contraseña; 
+    private int documento; 
+    private int sede;      
+    private int rol;      
 
 }

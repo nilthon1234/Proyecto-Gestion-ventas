@@ -18,11 +18,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ventas {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_ventas")
     private Integer idVenta;
-    
+
     @Column(name = "numero_venta", length = 4)
     private String numeroVenta;
 
@@ -30,10 +29,20 @@ public class Ventas {
     private LocalDateTime fechaVenta;
 
     @ManyToOne
-    @JoinColumn(name = "cliente")
+    @JoinColumn(name = "cliente", referencedColumnName = "id_cliente")
     private Clientes cliente;
 
     @ManyToOne
-    @JoinColumn(name = "usuario")
+    @JoinColumn(name = "usuario", referencedColumnName = "id_usuario")
     private Usuario usuario;
+
+    // Constructor con parámetros
+    public Ventas(String numeroVenta, LocalDateTime fechaVenta, Clientes cliente, Usuario usuario) {
+        this.numeroVenta = numeroVenta;
+        this.fechaVenta = fechaVenta;
+        this.cliente = cliente;
+        this.usuario = usuario;
+    }
+
+    // Getters y setters...
 }

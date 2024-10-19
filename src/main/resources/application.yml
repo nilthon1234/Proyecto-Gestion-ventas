@@ -10,7 +10,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect:
+        dialect: 
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
