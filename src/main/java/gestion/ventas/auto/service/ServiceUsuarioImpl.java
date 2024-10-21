@@ -34,8 +34,7 @@ public class ServiceUsuarioImpl implements ServiceUsuario {
         usuario.setCelular(usuarioDTO.getCelular());
         usuario.setNombreUsuario(usuarioDTO.getNombreUsuario());
         usuario.setContraseña(usuarioDTO.getContraseña());
-
-
+        
         usuario.setDocumento(documentoRepository.findById(usuarioDTO.getDocumento()).orElse(null));
         usuario.setSede(sedeRepository.findById(usuarioDTO.getSede()).orElse(null));
         usuario.setRol(rolRepository.findById(usuarioDTO.getRol()).orElse(null));

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import gestion.ventas.auto.dto.VentasDTO;
+import gestion.ventas.auto.models.Financiamiento;
 import gestion.ventas.auto.models.Ventas;
 import gestion.ventas.auto.service.ServiceVentas;
 
@@ -21,8 +22,11 @@ public class VentasController {
     private ServiceVentas serviceVentas;
 
     @PostMapping
-    public ResponseEntity<Ventas> createVenta(@RequestBody VentasDTO ventasDTO) {
-        Ventas venta = serviceVentas.createVenta(ventasDTO);
+    public ResponseEntity<Ventas> createVenta(@RequestBody Ventas ventas) {
+        Ventas venta = serviceVentas.createVenta(ventas);
         return ResponseEntity.ok(venta);
     }
+    
+    
+    
 }
