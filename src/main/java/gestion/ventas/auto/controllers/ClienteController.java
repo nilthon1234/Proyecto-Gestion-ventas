@@ -30,7 +30,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> findAllClientesByNombreOrApellido(@RequestParam String nombre) {
+    public ResponseEntity<Object> findAllClientesByNombreOrApellido(@RequestParam(required = false, defaultValue = "") String nombre) {
         return ResponseEntity.ok(serviceClientes.findAllClientesByNombreOrApellido(nombre));
     }
 }

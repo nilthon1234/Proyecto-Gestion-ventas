@@ -13,8 +13,8 @@ public class UsuarioDTO {
     private String nombre;           
     private String apellido;       
     private String celular;         
-    private String nombreUsuario;    
-    private String contraseña; 
+    private String username;
+    private String password;
     private int documento; 
     private int sede;      
     private int rol;      
