@@ -21,6 +21,7 @@ public class ServiceMantenimientoImpl implements ServiceMantenimiento {
 
     @Override
     public Mantenimiento updateMantenimiento(Integer id, Mantenimiento mantenimiento) {
+        mantenimiento.setIdMantemiento(id);
         return repository.findById(id)
                 .map(m -> repository.save(mantenimiento))
                 .orElse(null);

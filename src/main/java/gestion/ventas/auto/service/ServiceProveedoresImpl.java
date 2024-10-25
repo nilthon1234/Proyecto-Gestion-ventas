@@ -20,6 +20,7 @@ public class ServiceProveedoresImpl implements ServiceProveedores {
 
     @Override
     public Proveedores updateProveedor(Integer id, Proveedores proveedor) {
+        proveedor.setIdProveedor(id);
         return repository.findById(id)
                 .map(p -> repository.save(proveedor))
                 .orElse(null);
@@ -32,6 +33,7 @@ public class ServiceProveedoresImpl implements ServiceProveedores {
 
     @Override
     public List<Proveedores> findAllProveedoresByNombre(String nombre) {
+
         return repository.findByNombre(nombre);
     }
 }

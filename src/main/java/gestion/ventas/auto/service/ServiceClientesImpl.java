@@ -24,6 +24,7 @@ public class ServiceClientesImpl implements ServiceClientes {
 
     @Override
     public Clientes updateCliente(Integer id, ClienteDTO clienteDTO) {
+        clienteDTO.setIdCliente(id);
         return repository.findById(id)
                 .map(c -> repository.save(mapper.toEntity(clienteDTO)))
                 .orElse(null);

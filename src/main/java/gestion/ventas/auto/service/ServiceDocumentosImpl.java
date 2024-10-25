@@ -15,6 +15,7 @@ public class ServiceDocumentosImpl implements ServiceDocumentos{
     }
     @Override
     public Documento updateDocumento(Integer id, Documento documento){
+        documento.setIdDocumento(id);
         return repository.findById(id)
                 .map(p -> repository.save(documento))
                 .orElse(null);

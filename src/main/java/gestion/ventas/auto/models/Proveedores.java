@@ -11,11 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "proveedores")
 public class Proveedores {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_proveedores")
     private Integer idProveedor;
+
     private String nombre;
     private String direccion;
     private String celular;
