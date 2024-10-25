@@ -37,17 +37,16 @@ public class ServiceAutoImpl implements ServiceAutos {
     }
 
     @Override
-    public AutoDTO updateAutos(String id, AutoDTO autoDto) {
+    public AutoDTO updateAutos(Integer id, AutoDTO autoDto) {
         Autos autos =  autosRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Auto no encontrado con Id:" + id));
-
         Autos save = autoMapper.updateAuto(autoDto, autos);
         Autos update = autosRepository.save(save);
         return autoMapper.regisAutoMapper(update);
     }
 
     @Override
-    public void deleteAuto(String id) {
+    public void deleteAuto(Integer id) {
         if (!autosRepository.existsById(id)){
             throw new RuntimeException("Auto no encontrado con: " + id);
         }

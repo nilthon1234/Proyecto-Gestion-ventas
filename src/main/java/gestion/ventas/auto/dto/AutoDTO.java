@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AutoDTO {
 
-    private String idAutoDto;
+    private Integer idAutoDto;
     private String nombreDto;
     private String descripcionDto;
     private String marcaDto;

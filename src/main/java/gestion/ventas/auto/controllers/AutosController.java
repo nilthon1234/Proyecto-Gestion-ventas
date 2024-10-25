@@ -44,11 +44,11 @@ public class AutosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateAutos(@PathVariable String id, @RequestBody AutoDTO autoDTO){
+    public ResponseEntity<?> updateAutos(@PathVariable Integer id, @RequestBody AutoDTO autoDTO){
         return ResponseEntity.ok(serviceAutos.updateAutos(id, autoDTO));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id){
+    public ResponseEntity<?> delete(@PathVariable Integer id){
         try {
             serviceAutos.deleteAuto(id);
             return ResponseEntity.ok("Auto eliminado: " + id);

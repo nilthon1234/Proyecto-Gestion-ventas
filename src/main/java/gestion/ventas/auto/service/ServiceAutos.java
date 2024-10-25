@@ -8,6 +8,6 @@ import java.util.List;
 public interface ServiceAutos {
     AutoDTO createAuto (AutoDTO autosDto);
     List<AutoDTO> listAll();
-    AutoDTO updateAutos(String id, AutoDTO autoDto);
-    void deleteAuto(String id);
+    AutoDTO updateAutos(Integer id, AutoDTO autoDto);
+    void deleteAuto(Integer id);
 }
